@@ -1,6 +1,11 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CheckerPlugin } = require('awesome-typescript-loader');
 const helpers = require('../helpers');
+require('dotenv').config();
+const Dotenv = require('dotenv-webpack');
+
+console.log(process.env.NODE_ENV);
+console.log(process.env.BASE_API_URL);
 
 module.exports = {
   context: helpers.resolveFromRootPath('src'),
@@ -80,5 +85,9 @@ module.exports = {
       template: 'index.html',
     }),
     new CheckerPlugin(),
+    new Dotenv({
+      safe: true,
+      systemvars: true,
+    }),
   ],
 };

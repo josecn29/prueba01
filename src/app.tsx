@@ -8,6 +8,8 @@ const StyledFooter = s.Footer.withComponent(Footer);
 
 export const App: React.StatelessComponent = props => (
   <s.Layout>
+    <h1>{process.env.NODE_ENV}</h1>
+    <h1>{process.env.BASE_API_URL}</h1>
     <StyledNav />
     <StyledHeader />
     <s.Main>{props.children}</s.Main>
