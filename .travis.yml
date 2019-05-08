@@ -1,7 +1,12 @@
 language: node_js
 node_js:
   - "10"
+env:
+  global:
+    - NODE_ENV=test
+    - BASE_API_URL=https://test:8081
 install:
   - npm install
 script:
+  - npm run build
   - npm test
